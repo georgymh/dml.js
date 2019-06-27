@@ -64,7 +64,6 @@ if __name__ == '__main__':
 
    from twisted.python import log
    from twisted.internet import reactor
-   log.startLogging(sys.stdout)
 
    from autobahn.twisted.websocket import WebSocketClientFactory
    factory = WebSocketClientFactory()

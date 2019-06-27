@@ -1,5 +1,7 @@
 "use strict";
-export var DMLDB = /** @class */ (function () {
+exports.__esModule = true;
+var tfjs_1 = require("@tensorflow/tfjs");
+var DMLDB = /** @class */ (function () {
     function DMLDB() {
     }
     DMLDB._open = function () {
@@ -89,7 +91,7 @@ export var DMLDB = /** @class */ (function () {
         var objStore = transaction.objectStore('datamapping');
         var request = objStore.get(dml_request.repo);
         request.onsuccess = function (e) {
-            var data = tf.tensor(request.result.data).as2D(request.result.rows, request.result.cols);
+            var data = tfjs_1.tensor(request.result.data).as2D(request.result.rows, request.result.cols);
             if (dml_request.action == 'TRAIN') {
                 var sessions = request.result.sessions;
                 if (!(dml_request.id in sessions)) {
@@ -126,3 +128,4 @@ export var DMLDB = /** @class */ (function () {
     ;
     return DMLDB;
 }());
+exports.DMLDB = DMLDB;
